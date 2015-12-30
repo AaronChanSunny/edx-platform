@@ -4539,7 +4539,7 @@ msgid ""
 "the edX and Open EdX logos are registered trademarks or trademarks of edX "
 "Inc."
 msgstr ""
-"© {org_name}.保留除注明外的所有权利。EdX, Open edX,the edX 和 Open EdX都是edX公司注册的商标。 "
+"版权所有 ©2000-2015 福建星网锐捷网络有限公司 京ICP备13025710号-5"
 
 #. #-#-#-#-#  django-partial.po (edx-platform)  #-#-#-#-#
 #. Translators: 'Open edX' is a brand, please keep this untranslated.

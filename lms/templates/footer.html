@@ -19,14 +19,40 @@
     <div class="colophon">
       <nav class="nav-colophon" aria-label="${_('About')}">
         <ol>
-            % for item_num, link in enumerate(footer['navigation_links'], start=1):
-            <li class="nav-colophon-0${item_num}">
-              <a id="${link['name']}" href="${link['url']}">${link['title']}</a>
+            %if settings.MKTG_URL_LINK_MAP.get('ABOUT'):
+            <li>
+              <a id="about" href="${marketing_link('ABOUT')}">${_("About")}</a>
             </li>
-            % endfor
+            %endif
+            %if settings.MKTG_URL_LINK_MAP.get('FAQ'):
+            <li>
+              <a id="faq" href="${marketing_link('FAQ')}">${_("FAQ")}</a>
+            </li>
+            %endif
+            %if settings.MKTG_URL_LINK_MAP.get('CONTACT'):
+            <li>
+              <a id="contact" href="${marketing_link('CONTACT')}">${_("Contact")}</a>
+            </li>
+            %endif
+            %if settings.MKTG_URL_LINK_MAP.get('TOS'):
+            <li>
+              <a href="${marketing_link('TOS')}">${_("Terms of Service")}</a>
+            </li>
+            %endif
+            %if settings.MKTG_URL_LINK_MAP.get('HONOR'):
+            <li>
+              <a href="${marketing_link('HONOR')}">${_("Honor Code")}</a>
+            </li>
+            %endif
+            %if settings.MKTG_URL_LINK_MAP.get('PRIVACY'):
+            <li>
+              <a href="${marketing_link('PRIVACY')}">${_("Privacy Policy")}</a>
+            </li>
+            %endif
         </ol>
       </nav>
 
+      <!--
       <div class="wrapper-logo">
         <p>
           <a href="/">
@@ -37,23 +63,14 @@
             ## can be included in the footer on other sites
             ## (e.g. a blog or marketing front-end) to provide a consistent
             ## user experience.  See the branding app for details.
-            <img alt="organization logo" src="${footer['logo_image']}">
+            <img alt="organization logo" src="/static/images/default-theme/logo.png">
           </a>
         </p>
       </div>
+      !-->
 
       ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
       <p class="copyright">${footer['copyright']}</p>
-
-      <nav class="nav-legal" aria-label="${_('Legal')}">
-        <ul>
-          % for item_num, link in enumerate(footer['legal_links'], start=1):
-            <li class="nav-legal-0${item_num}">
-              <a href="${link['url']}">${link['title']}</a>
-            </li>
-          % endfor
-        </ul>
-      </nav>
     </div>
 
     ## Please leave this link and use one of the logos provided
@@ -63,8 +80,8 @@
     % if not hide_openedx_link:
     <div class="footer-about-openedx">
       <p>
-        <a href="${footer['openedx_link']['url']}">
-          <img src="${footer['openedx_link']['image']}" alt="${footer['openedx_link']['title']}" width="140" />
+        <a href="${marketing_link('ABOUT')}">
+          <img src="/static/images/default-theme/foot_logo.png" alt="Power by RuiJie " width="200" />
         </a>
       </p>
     </div>
