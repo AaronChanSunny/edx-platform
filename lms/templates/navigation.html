@@ -37,15 +37,20 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 </%block>
 
+
   <header id="global-navigation" class="global ${"slim" if course else ""}" >
-    <nav class="nav-wrapper" aria-label="${_('Global')}">
+    <nav class="nav-wrapper" aria-label="${_('Global')}" style="max-width:1500px;width:1450px;">
     <h1 class="logo">
       <a href="${marketing_link('ROOT')}">
         <%block name="navigation_logo">
-            <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
+            <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}" height="50px;"/>
         </%block>
       </a>
     </h1>
+    <ol class="left nav-global" style="display:block;">
+        <li class="nav-global-04"> <a href="${marketing_link('ROOT')}">首页</a> </li>
+        <li class="nav-global-04"> </li>
+    </ol>
 
     % if course:
     <h2 class="course-header"><span class="provider">${course.display_org_with_default | h}:</span>
@@ -129,25 +134,36 @@ site_status_msg = get_site_status_msg(course_id)
             <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register Now")}</a>
           </li>
           % else:
-          <li class="nav-global-04">
-            <a class="cta cta-register" href="/register${login_query()}">${_("Register Now")}</a>
-          </li>
+ 
           % endif
       % endif
     </ol>
 
     <ol class="right nav-courseware">
+    <li class="nav-courseware-01" style="line-height: 35px;text-align:center;">
+      <form method="get" action="/courses">
+              <input class="search-input" name="search_query" type="text" placeholder="${_("Search for a course")}"  style="padding-top:-10px;"></input>
+              <button class="search-button" type="submit"  style="padding-top:-10px;">
+                <i class="icon fa fa-search" aria-hidden="true"></i>
+              </button>
+      </form>
+    </li>
     <li class="nav-courseware-01">
       % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
           % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
           <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Sign in")}</a>
-          % else:
+          % else:       
           <a class="cta cta-login" href="/login${login_query()}">${_("Sign in")}</a>
+          <a class="cta cta-login" href="/register${login_query()}" style="background:#eff2f5;color:#000000;">注册</a>
           % endif
       % endif
     </li>
     </ol>
     % endif
+    <ol class="left nav-global" style="display:block;">
+        <li class="nav-global-01"></li>
+        <li class="nav-global-01"> <a href="${static.url("images/VideoLocke.apk")}">下载APP</a> </li>
+    </ol>
   </nav>
 </header>
 % if course:

@@ -8872,7 +8872,7 @@ msgstr "在课程中将会识别你身份的姓名 - {bold_start}(以后无法�
 #. a field on the registration form meant to hold the user's username.
 #: openedx/core/djangoapps/user_api/views.py
 msgid "JaneDoe"
-msgstr "JaneDoe"
+msgstr "李小龙"
 
 #. Translators: This label appears above a dropdown menu on the registration
 #. form used to select the user's highest completed level of education.

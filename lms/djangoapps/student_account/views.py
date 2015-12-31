@@ -262,11 +262,10 @@ def _local_server_get(url, session):
     request.method = "GET"
     request.session = session
 
-    # Call the Django view function, simulating
+    # Call the Django view function, simul
     # the server-server API call
     view, args, kwargs = resolve(url)
     response = view(request, *args, **kwargs)
-
     # Return the content of the response
     return response.content
 

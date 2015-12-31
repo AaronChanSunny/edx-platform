@@ -375,17 +375,17 @@ msgstr ""
 
 #: common/djangoapps/student/models.py
 msgid "Male"
-msgstr ""
+msgstr "男性"
 
 #: common/djangoapps/student/models.py
 msgid "Female"
-msgstr ""
+msgstr "女性"
 
 #. Translators: 'Other' refers to the student's gender
 #. Translators: 'Other' refers to the student's level of education
 #: common/djangoapps/student/models.py
 msgid "Other"
-msgstr ""
+msgstr "其它"
 
 #: common/djangoapps/student/models.py
 msgid "Doctorate"
@@ -7221,7 +7221,7 @@ msgstr ""
 #. a field on the registration form meant to hold the user's username.
 #: openedx/core/djangoapps/user_api/views.py
 msgid "JaneDoe"
-msgstr ""
+msgstr "李小龙"
 
 #. Translators: This label appears above a dropdown menu on the registration
 #. form used to select the user's highest completed level of education.

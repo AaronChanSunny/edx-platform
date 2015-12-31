@@ -379,17 +379,17 @@ msgstr "Compte desactivat"
 
 #: common/djangoapps/student/models.py
 msgid "Male"
-msgstr ""
+msgstr "男性"
 
 #: common/djangoapps/student/models.py
 msgid "Female"
-msgstr ""
+msgstr "女性"
 
 #. Translators: 'Other' refers to the student's gender
 #. Translators: 'Other' refers to the student's level of education
 #: common/djangoapps/student/models.py
 msgid "Other"
-msgstr ""
+msgstr "其它"
 
 #: common/djangoapps/student/models.py
 msgid "Doctorate"

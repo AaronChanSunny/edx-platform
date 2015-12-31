@@ -21,29 +21,29 @@ from django_comment_client.permissions import has_permission
                 <div class="add-response">
                     <button class="button add-response-btn">
                         <i class="icon fa fa-reply"></i>
-                        <span class="add-response-btn-text">${_('Add A Response')}</span>
+                        <span class="add-response-btn-text">新增回复</span>
                     </button>
                 </div>
                 <ol class="responses js-response-list"/>
                 <div class="response-pagination"/>
                 <div class="post-status-closed bottom-post-status" style="display: none">
-                  ${_("This thread is closed.")}
+                    这条线是关闭的
                 </div>
                 % if course is UNDEFINED or has_permission(user, 'create_comment', course.id):
                 <form class="discussion-reply-new" data-id="${'<%- id %>'}">
-                    <h4>${_("Post a response:")}</h4>
+                    <h4>回复：</h4>
                     <ul class="discussion-errors"></ul>
                     <div class="reply-body" data-id="${'<%- id %>'}"></div>
                     <div class="reply-post-control">
-                        <a class="discussion-submit-post control-button" href="#">${_("Submit")}</a>
+                        <a class="discussion-submit-post control-button" href="#">提交</a>
                     </div>
                 </form>
                 % endif
             </div>
         </div>
         <div class="post-tools">
-            <a href="javascript:void(0)" class="forum-thread-expand"><span class="icon fa fa-plus"/> ${_("Expand discussion")}</a>
-            <a href="javascript:void(0)" class="forum-thread-collapse"><span class="icon fa fa-minus"/> ${_("Collapse discussion")}</a>
+            <a href="javascript:void(0)" class="forum-thread-expand"><span class="icon fa fa-plus"/>展开讨论</a>
+            <a href="javascript:void(0)" class="forum-thread-collapse"><span class="icon fa fa-minus"/>坐下讨论</a>
         </div>
     </article>
 </script>
@@ -55,18 +55,18 @@ from django_comment_client.permissions import has_permission
 % endfor
 
 <script aria-hidden="true" type="text/template" id="thread-edit-template">
-    <h1>${_("Editing post")}</h1>
+    <h1>编辑帖子</h1>
     <ul class="post-errors"></ul>
     <div class="forum-edit-post-form-wrapper"></div>
     <div class="form-row">
-      <label class="sr" for="edit-post-title">${_("Edit post title")}</label>
-      <input type="text" id="edit-post-title" class="edit-post-title" name="title" value="${"<%-title %>"}" placeholder="${_('Title') | h}">
+      <label class="sr" for="edit-post-title">编辑帖子标题</label>
+      <input type="text" id="edit-post-title" class="edit-post-title" name="title" value="标题" placeholder="标题">
     </div>
     <div class="form-row">
       <div class="edit-post-body" name="body">${"<%- body %>"}</div>
     </div>
-    <input type="submit" id="edit-post-submit" class="post-update" value="${_("Update post") | h}">
-    <a href="#" class="post-cancel">${_("Cancel")}</a>
+    <input type="submit" id="edit-post-submit" class="post-update" value="修改">
+    <a href="#" class="post-cancel">取消</a>
 </script>
 
 <script aria-hidden="true" type="text/template" id="thread-response-template">
@@ -80,11 +80,11 @@ from django_comment_client.permissions import has_permission
             % if course is UNDEFINED or has_permission(user, 'create_sub_comment', course.id):
             <form class="comment-form" data-id="${'<%- wmdId %>'}">
                 <ul class="discussion-errors"></ul>
-                <label class="sr" for="add-new-comment">${_("Add a comment")}</label>
+                <label class="sr" for="add-new-comment">添加注释</label>
                 <div class="comment-body" id="add-new-comment" data-id="${'<%- wmdId %>'}"
-                data-placeholder="${_('Add a comment') | h}"></div>
+                data-placeholder="添加注释"></div>
                 <div class="comment-post-control">
-                    <a class="discussion-submit-comment control-button" href="#">${_("Submit")}</a>
+                    <a class="discussion-submit-comment control-button" href="#">提交</a>
                 </div>
             </form>
             % endif
@@ -107,7 +107,7 @@ from django_comment_client.permissions import has_permission
                     {{
                         'time_ago': '<span class="timeago" title="' + endorsement.time + '">' + endorsement.time + '</span>',
                         'user': endorser_display
-                    }},
+                    }},域：
                     true
                 )""".format(
                     ## Translators: time_ago is a placeholder for a fuzzy, relative timestamp
@@ -127,7 +127,7 @@ from django_comment_client.permissions import has_permission
               ${"<% if (obj.endorsement) { %> - <%="}${js_block}${"%><% } %>"}
           </p>
           <div class="post-labels">
-              <span class="post-label-reported"><i class="icon fa fa-flag"></i>${_("Reported")}</span>
+              <span class="post-label-reported"><i class="icon fa fa-flag"></i>报道</span>
           </div>
           </div>
           <div class="response-header-actions">
@@ -150,13 +150,13 @@ from django_comment_client.permissions import has_permission
 
 <script aria-hidden="true" type="text/template" id="thread-response-edit-template">
   <div class="edit-post-form">
-    <h1>${_("Editing response")}</h1>
+    <h1>编辑回复</h1>
     <ul class="edit-post-form-errors"></ul>
     <div class="form-row">
       <div class="edit-post-body" name="body" data-id="${'<%- id %>'}">${"<%- body %>"}</div>
     </div>
-    <input type="submit" id="edit-response-submit"class="post-update" value="${_("Update response") | h}">
-    <a href="#" class="post-cancel">${_("Cancel")}</a>
+    <input type="submit" id="edit-response-submit"class="post-update" value="修改回复">
+    <a href="#" class="post-cancel">取消</a>
   </div>
 </script>
 
@@ -189,20 +189,20 @@ from django_comment_client.permissions import has_permission
     ${'<%='}${js_block}${'%>'}
     </p>
     <div class="post-labels">
-      <span class="post-label-reported"><i class="icon fa fa-flag"></i>${_("Reported")}</span>
+      <span class="post-label-reported"><i class="icon fa fa-flag"></i>报道</span>
     </div>
   </div>
 </script>
 
 <script aria-hidden="true" type="text/template" id="response-comment-edit-template">
   <div class="edit-post-form" id="comment_${'<%- id %>'}">
-    <h1>${_("Editing comment")}</h1>
+    <h1>编辑评论</h1>
     <ul class="edit-comment-form-errors"></ul>
     <div class="form-row">
       <div class="edit-comment-body" name="body" data-id="${'<%- id %>'}">${"<%- body %>"}</div>
     </div>
-    <input type="submit" id="edit-comment-submit" class="post-update" value="${_("Update comment") | h}">
-    <a href="#" class="post-cancel">${_("Cancel")}</a>
+    <input type="submit" id="edit-comment-submit" class="post-update" value="修改">
+    <a href="#" class="post-cancel">取消</a>
   </div>
 </script>
 
@@ -312,7 +312,7 @@ from django_comment_client.permissions import has_permission
 <script aria-hidden="true" type="text/template" id="discussion-home">
   <div class="discussion-article blank-slate">
     <section class="home-header">
-      <span class="label">${_("DISCUSSION HOME:")}</span>
+      <span class="label">讨论区主页：</span>
       % if course and course.display_name_with_default:
         <h1 class="home-title">${course.display_name_with_default}</h1>
       % endif
@@ -320,50 +320,50 @@ from django_comment_client.permissions import has_permission
 
       % if settings.FEATURES.get('ENABLE_DISCUSSION_HOME_PANEL'):
         <span class="label label-settings">
-          ${_("How to use {platform_name} discussions").format(platform_name=settings.PLATFORM_NAME)}
+          如何使用讨论区
         </span>
         <table class="home-helpgrid">
           <tr class="helpgrid-row helpgrid-row-navigation">
-            <td class="row-title">${_("Find discussions")}</td>
+            <td class="row-title">发现讨论</td>
             <td class="row-item">
               <i class="icon fa fa-reorder"></i>
-              <span class="row-description">${_("Focus in on specific topics")}</span>
+              <span class="row-description">聚焦特定主题</span>
             </td>
             <td class="row-item">
               <i class="icon fa fa-search"></i>
-              <span class="row-description">${_("Search for specific posts ")}</span>
+              <span class="row-description">搜索特定帖子</span>
             </td>
             <td class="row-item">
               <i class="icon fa fa-sort"></i>
-              <span class="row-description">${_("Sort by date, vote, or comments")}</span>
+              <span class="row-description">按日期，表决或评论排序</span>
             </td>
           </tr>
           <tr class="helpgrid-row helpgrid-row-participation">
-            <td class="row-title">${_("Engage with posts")}</td>
+            <td class="row-title">发帖子</td>
             <td class="row-item">
               <i class="icon fa fa-plus"></i>
-              <span class="row-description">${_("Upvote posts and good responses")}</span>
+              <span class="row-description">支持文章和良好的效果</span>
             </td>
             <td class="row-item">
               <i class="icon fa fa-flag"></i>
-              <span class="row-description">${_("Report Forum Misuse")}</span>
+              <span class="row-description">报告滥用</span>
             </td>
             <td class="row-item">
               <i class="icon fa fa-star"></i>
-              <span class="row-description">${_("Follow posts for updates")}</span>
+              <span class="row-description">跟踪更新的帖子</span>
             </td>
           </tr>
           <tr class="helpgrid-row helpgrid-row-notification">
-            <td class="row-title">${_('Receive updates')}</td>
+            <td class="row-title">接受更新</td>
             <td class="row-item-full" colspan="3">
               <label for="email-setting-checkbox">
-                <span class="sr">${_("Toggle Notifications Setting")}</span>
+                <span class="sr">切换通知设置</span>
                 <span class="notification-checkbox">
                   <input type="checkbox" id="email-setting-checkbox" class="email-setting" name="email-notification"/>
                   <i class="icon fa fa-envelope"></i>
                 </span>
               </label>
-              <span class="row-description">${_("Check this box to receive an email digest once a day notifying you about new, unread activity from posts you are following.")}</span>
+              <span class="row-description">选中这个框，收到一封邮件，从帖子中了解到新的未读的活动</span>
             </td>
           </tr>
         </table>
@@ -392,48 +392,48 @@ from django_comment_client.permissions import has_permission
             <label class="field-label">
                 <span class="field-label-text">
                     ## Translators: This labels the selector for which group of students can view a post
-                    ${_("Visible To:")}
+                    可见：
                 </span><select aria-describedby="field_help_visible_to" class="field-input js-group-select" name="group_id" ${'<% if (!is_commentable_cohorted) { %>'}disabled${'<% } %>'}>
-                    <option value="">${_("All Groups")}</option>
+                    <option value="">所有组</option>
                     ${'<% _.each(cohort_options, function(opt) { %>'}
                     <option value="${'<%= opt.value %>'}" ${'<% if (opt.selected) { %>selected<% } %>'}>${'<%- opt.text %>'}</option>
                     ${'<% }); %>'}
                  </select>
             </label><div class="field-help" id="field_help_visible_to">
-                ${_("Discussion admins, moderators, and TAs can make their posts visible to all students or specify a single cohort.")}
+                论坛管理员，版主和助教可以使他们的帖子给所有学生或者指定人员可见
             </div>
         </div>
         ${'<% } %>'}
         <div class="post-field">
             <label class="field-label">
-                <span class="sr">${_("Title:")}</span>
-                <input aria-describedby="field_help_title" type="text" class="field-input js-post-title" name="title" placeholder="${_('Title')}">
+                <span class="sr">标题</span>
+                <input aria-describedby="field_help_title" type="text" class="field-input js-post-title" name="title" placeholder="标题">
             </label><span class="field-help" id="field_help_title">
-                ${_("Add a clear and descriptive title to encourage participation.")}
+                添加一个明确的，并且具有代表性的标题，用以吸引人员参与
             </span>
         </div>
-        <div class="post-field js-post-body editor" name="body" data-placeholder="${_('Enter your question or comment')}"></div>
+        <div class="post-field js-post-body editor" name="body" data-placeholder="输入你的问题和评论"></div>
         <div class="post-options">
             <label class="post-option is-enabled">
                 <input type="checkbox" name="follow" class="post-option-input js-follow" checked>
-                <i class="icon fa fa-star"></i>${_("follow this post")}
+                <i class="icon fa fa-star"></i>采纳这个帖子
             </label>
             ${'<% if (allow_anonymous) { %>'}
             <label class="post-option">
                 <input type="checkbox" name="anonymous" class="post-option-input js-anon">
-                ${_("post anonymously")}
+                匿名发帖
             </label>
             ${'<% } %>'}
             ${'<% if (allow_anonymous_to_peers) { %>'}
             <label class="post-option">
                 <input type="checkbox" name="anonymous_to_peers" class="post-option-input js-anon-peers">
-                ${_("post anonymously to classmates")}
+                匿名发帖的同学
             </label>
             ${'<% } %>'}
         </div>
         <div>
-            <input type="submit" class="submit" value="${_('Add Post')}">
-            <a href="#" class="cancel">${_('Cancel')}</a>
+            <input type="submit" class="submit" value="发帖">
+            <a href="#" class="cancel">取消</a>
         </div>
     </form>
 </script>
@@ -444,23 +444,23 @@ from django_comment_client.permissions import has_permission
             <span class="field-label-text">
                 ## Translators: This is the label for a control to
                 ## select a forum post type
-                ${_("Post type:")}
-            </span><fieldset class="field-input"><legend class="sr">${_("Post type:")}</legend>
+                帖子类型：
+            </span><fieldset class="field-input"><legend class="sr">帖子类型：</legend>
                 <input aria-describedby="field_help_post_type" type="radio" name="${"<%= form_id %>"}-post-type" class="post-type-input" id="${"<%= form_id %>"}-post-type-question" value="question">
                 <label for="${"<%= form_id %>"}-post-type-question" class="post-type-label">
                     <i class="icon fa fa-question"></i>
                     ## Translators: This is a forum post type
-                    ${_("Question")}
+                   问题
                 </label>
                 <input aria-describedby="field_help_post_type" type="radio" name="${"<%= form_id %>"}-post-type" class="post-type-input" id="${"<%= form_id %>"}-post-type-discussion" value="discussion" checked>
                 <label for="${"<%= form_id %>"}-post-type-discussion" class="post-type-label">
                     <i class="icon fa fa-comments"></i>
                     ## Translators: This is a forum post type
-                    ${_("Discussion")}
+                    讨论
                 </label>
             </fieldset>
         </div><span class="field-help" id="field_help_post_type">
-            ${_("Questions raise issues that need answers. Discussions share ideas and start conversations.")}
+            踢出需要解答的问题，讨论分享和对话。
         </span>
     </div>
 </script>
@@ -481,22 +481,22 @@ from django_comment_client.permissions import has_permission
 <script aria-hidden="true" type="text/template" id="topic-template">
     ## Using div here instead of label because we are using a non-native control
     <div class="field-label">
-        <span class="field-label-text">${_("Topic Area:")}</span><div class="field-input post-topic">
+        <span class="field-label-text">主题区域：</span><div class="field-input post-topic">
             <a href="#" class="post-topic-button">
-                <span class="sr">${_("Discussion topics; current selection is: ")}</span>
+                <span class="sr">当前所选的讨论主题：</span>
                 <span class="js-selected-topic"></span>
                 <span class="drop-arrow" aria-hidden="true">▾</span>
             </a>
             <div class="topic-menu-wrapper">
                 <label class="topic-filter-label">
-                    <span class="sr">${_("Filter topics")}</span>
-                    <input aria-describedby="field_help_topic_area" type="text" class="topic-filter-input" placeholder="${_('Filter topics')}">
+                    <span class="sr">筛选主题</span>
+                    <input aria-describedby="field_help_topic_area" type="text" class="topic-filter-input" placeholder="筛选主题">
                 </label>
                 <ul class="topic-menu" role="menu">${'<%= topics_html %>'}</ul>
            </div>
        </div>
     </div><span class="field-help" id="field_help_topic_area">
-        ${_("Add your post to a relevant topic to help others find it.")}
+       把你的文章添加到一个相关的主题，以帮助其它人找到它
     </span>
 </script>
 
@@ -526,7 +526,7 @@ ${primaryAction("follow", "star", _("Follow"), _("Follow"), _("Unfollow"))}
         </span>
         <a href="#" class="action-button action-vote" role="checkbox" aria-checked="false">
             ## Vote counts are populated by JS
-            <span class="sr">${_("Vote for this post,")}&nbsp;</span>
+            <span class="sr">投票给这篇文章，&nbsp;</span>
             <span class="sr js-sr-vote-count"></span>
 
             <span class="action-label" aria-hidden="true">
@@ -581,7 +581,7 @@ ${secondaryAction("delete", "remove", _("Delete"))}
         <li class="actions-item is-visible">
             <div class="more-wrapper">
                 <a href="javascript:void(0)" class="action-button action-more" role="button" aria-haspopup="true" aria-controls="action-menu-${"<%= contentId %>"}">
-                    <span class="action-label">${_("More")}</span>
+                    <span class="action-label">更多</span>
                     <span class="action-icon"><i class="icon fa fa-ellipsis-h"></i></span>
                 </a>
                 <div class="actions-dropdown" id="action-menu-${"<%= contentType %>"}" aria-expanded="false">
@@ -598,11 +598,11 @@ ${secondaryAction("delete", "remove", _("Delete"))}
     ${"<% if (username) { %>"}
     <a href="${'<%- user_url %>'}" class="username">${'<%- username %>'}</a>
         ${"<% if (is_community_ta) { %>"}
-        <span class="user-label-community-ta">${_("Community TA")}</span>
+        <span class="user-label-community-ta">社区助教</span>
         ${"<% } else if (is_staff) { %>"}
-        <span class="user-label-staff">${_("Staff")}</span>
+        <span class="user-label-staff">教员</span>
         ${"<% } %>"}
     ${"<% } else { %>"}
-    ${_('anonymous') | h}
+    匿名
     ${"<% } %>"}
 </script>
