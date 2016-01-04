@@ -65,7 +65,6 @@ site_status_msg = get_site_status_msg(course_id)
       ${display_name}</h2>
     % endif
 
-    % if user.is_authenticated():
     <ol class="left nav-global authenticated">
       <%block name="navigation_global_links_authenticated">
         % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
@@ -81,6 +80,9 @@ site_status_msg = get_site_status_msg(course_id)
         %endif
       </%block>
     </ol>
+
+    % if user.is_authenticated():
+
     <ol class="user">
       <li class="primary">
         <a href="${reverse('dashboard')}" class="user-link">
